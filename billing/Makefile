@@ -6,11 +6,11 @@ end-time := $(shell date -u $(dateformat))
 namespace := AWS/Billing
 metric := EstimatedCharges
 period := 86400
-profile-option :=
+aws-option :=
 
 get-estimated-charges:
 	echo $(dateformat)
-	aws cloudwatch get-metric-statistics $(profile-option) \
+	aws cloudwatch get-metric-statistics $(aws-option) \
 		--region us-east-1 \
 		--namespace $(namespace) \
 		--metric-name $(metric) \
